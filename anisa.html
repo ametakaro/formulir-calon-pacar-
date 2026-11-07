@@ -5,58 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Formulir Pendaftaran Calon Pacar Anisa 💖</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
 <style>
-  :root{--pink:#E8457A;--soft:#F7A8C2;--light:#FFE4EE;--dark:#5A2A3C;--grey:#9A7A86}
+  /* Dark aesthetic: plum night sky with sparkles, sticker cards with chunky outlines + pastel offset shadows */
+  :root{
+    --bg:#1B1020; --bg2:#2A1530; --card:#2B1A30; --field:#22142A; --ink:#FFE6F0; --line:#FFE6F0; --muted:#C9A9C6;
+    --pink:#FF7AA8; --soft:#7A3E64; --lilac:#C7B3FF; --butter:#FFE29A; --mint:#9EEBCF;
+    --display:"Pacifico",cursive; --body:"Fredoka",system-ui,-apple-system,"Segoe UI",sans-serif; color-scheme:dark;
+  }
   *{box-sizing:border-box}
-  body{margin:0;font-family:Poppins,system-ui,sans-serif;color:var(--dark);
-    background:var(--light) radial-gradient(circle at 10% 10%,#ffd0e0 0,transparent 40%),radial-gradient(circle at 90% 80%,#ffd0e0 0,transparent 40%);
-    min-height:100vh;padding:24px 14px 60px}
-  .card{max-width:640px;margin:0 auto;background:#fff;border-radius:22px;padding:28px 22px;
-    box-shadow:0 10px 40px rgba(232,69,122,.15);border:2px dashed var(--soft)}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--body);color:var(--ink);font-size:16px;line-height:1.55;min-height:100vh;
+    padding:40px 14px 60px;overflow-x:hidden;
+    background:
+      radial-gradient(circle at 15% 10%,rgba(255,122,168,.18) 0,transparent 35%),
+      radial-gradient(circle at 85% 30%,rgba(199,179,255,.16) 0,transparent 40%),
+      radial-gradient(circle at 30% 90%,rgba(255,122,168,.12) 0,transparent 40%),
+      linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%) fixed}
+  body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55;
+    background-image:radial-gradient(1.4px 1.4px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 120px 80px,#ffd6e6,transparent),
+      radial-gradient(1.2px 1.2px at 200px 150px,#fff,transparent),radial-gradient(1px 1px at 60px 200px,#e6dcff,transparent),
+      radial-gradient(1.5px 1.5px at 160px 250px,#fff,transparent);background-size:240px 280px;animation:twinkle 4s ease-in-out infinite alternate}
+  @keyframes twinkle{from{opacity:.3}to{opacity:.7}}
+  .card{position:relative;z-index:1;max-width:640px;margin:0 auto;background:var(--card);border:3px solid var(--line);border-radius:28px;
+    padding:38px 22px 28px;box-shadow:8px 8px 0 var(--pink),16px 16px 0 rgba(199,179,255,.35)}
+  @media(max-width:480px){.card{padding:34px 16px 24px;box-shadow:5px 5px 0 var(--pink),10px 10px 0 rgba(199,179,255,.35)}}
+  .tape{position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--butter);color:#2B1A30;
+    border:2px solid var(--line);padding:3px 16px;border-radius:8px;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
   header{text-align:center}
-  .big-heart{font-size:42px;color:var(--pink);animation:beat 1.2s infinite}
-  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
-  h1{font-family:Pacifico,cursive;font-weight:400;color:var(--pink);font-size:30px;margin:6px 0 4px;line-height:1.3}
-  .sub{font-style:italic;font-size:14px;margin:0 0 14px}
-  .note{background:var(--light);border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.5}
-  .sec{margin-top:26px}
-  .sec-title{background:var(--pink);color:#fff;border-radius:10px;padding:8px 14px;font-weight:600;font-size:14px;letter-spacing:.3px}
-  .sec-title small{font-weight:400;opacity:.9}
-  label.f{display:block;margin-top:14px;font-size:14px;font-weight:500}
-  input[type=text],input[type=tel],textarea{width:100%;margin-top:6px;padding:11px 13px;border:1.5px solid var(--soft);
-    border-radius:12px;font:inherit;font-size:15px;color:var(--dark);background:#fffafc;outline:none;transition:.2s}
-  input:focus,textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(232,69,122,.15)}
-  textarea{min-height:80px;resize:vertical}
+  .big-heart{font-size:46px;color:var(--pink);animation:beat 1.3s infinite;text-shadow:0 0 18px rgba(255,122,168,.7)}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
+  h1{font-family:var(--display);font-weight:400;color:var(--pink);font-size:clamp(27px,7vw,38px);margin:6px 0 6px;line-height:1.3;
+    text-shadow:0 0 22px rgba(255,122,168,.45);text-wrap:balance}
+  .sub{margin:0 0 16px;font-weight:500}
+  .note{background:var(--field);border:2px dashed var(--soft);border-radius:16px;padding:12px 16px;font-size:14.5px;line-height:1.55;text-align:left}
+  .note b{color:var(--butter)}
+  .sec{margin-top:30px}
+  .sec-title{display:inline-block;background:var(--lilac);color:#2B1A30;border:2px solid var(--line);border-radius:14px;padding:6px 14px;
+    font-weight:700;font-size:15px;box-shadow:3px 3px 0 var(--pink);transform:rotate(-1deg)}
+  .sec:nth-of-type(even) .sec-title{background:var(--pink);color:#2B1A30;box-shadow:3px 3px 0 var(--lilac);transform:rotate(1deg)}
+  .sec-title small{font-weight:500;opacity:.85}
+  label.f{display:block;margin-top:14px;font-size:15px;font-weight:500}
+  input[type=text],input[type=tel],textarea{width:100%;margin-top:6px;padding:12px 14px;border:2px solid var(--soft);
+    border-radius:14px;font:inherit;font-size:16px;color:var(--ink);background:var(--field);outline:none;transition:.2s}
+  input:focus,textarea:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,122,168,.2),0 0 18px rgba(255,122,168,.25)}
+  textarea{min-height:92px;resize:vertical}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
-  @media(max-width:480px){.row{grid-template-columns:1fr}}
-  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-  @media(max-width:480px){.opts{grid-template-columns:1fr}}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
   .opts.one{grid-template-columns:1fr}
-  .opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1.5px solid var(--light);border-radius:12px;
-    cursor:pointer;font-size:14px;transition:.15s;background:#fff}
-  .opt:hover{border-color:var(--soft)}
-  .opt input{accent-color:var(--pink);width:18px;height:18px;margin:2px 0 0;flex:none}
-  .opt:has(input:checked){border-color:var(--pink);background:#fff3f7}
-  .q{font-weight:600;font-size:14px;margin-top:16px}
-  .btn{display:block;width:100%;margin-top:26px;padding:15px;border:0;border-radius:14px;background:var(--pink);color:#fff;
-    font:inherit;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 6px 18px rgba(232,69,122,.35);transition:.15s;text-align:center;text-decoration:none}
-  .btn:hover{transform:translateY(-2px)}
-  .btn.ghost{background:#fff;color:var(--pink);border:2px solid var(--pink);box-shadow:none;margin-top:12px}
-  .err{color:var(--pink);font-size:13px;margin-top:10px;text-align:center;min-height:18px}
-  .pledge{display:flex;gap:10px;margin-top:14px;font-size:14px;line-height:1.5}
-  .pledge input{accent-color:var(--pink);width:18px;height:18px;flex:none;margin-top:3px}
+  @media(max-width:480px){.row,.opts{grid-template-columns:1fr}}
+  .opt{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border:2px solid var(--soft);border-radius:14px;
+    cursor:pointer;font-size:15px;background:var(--field);transition:transform .12s,border-color .12s,background .12s}
+  .opt:hover{transform:translateY(-2px);border-color:var(--pink)}
+  .opt input{accent-color:var(--pink);width:19px;height:19px;margin:2px 0 0;flex:none}
+  .opt:has(input:checked){border-color:var(--line);background:#4A2340;box-shadow:3px 3px 0 var(--pink)}
+  .q{font-weight:600;font-size:15px;margin-top:18px}
+  .pledge{display:flex;gap:12px;margin-top:14px;font-size:15px;line-height:1.55;padding:14px;border:2px dashed var(--butter);border-radius:16px;background:#3A2A2A;cursor:pointer}
+  .pledge input{accent-color:var(--pink);width:20px;height:20px;flex:none;margin-top:3px}
+  .btn{display:block;width:100%;margin-top:28px;padding:16px;border:3px solid var(--line);border-radius:999px;background:var(--pink);color:#2B1A30;
+    font:inherit;font-weight:700;font-size:19px;cursor:pointer;box-shadow:4px 4px 0 var(--lilac);transition:transform .15s,box-shadow .15s;text-align:center}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--lilac)}
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--lilac)}
+  .btn.ghost{background:transparent;color:var(--pink);margin-top:12px}
+  :focus-visible{outline:3px dashed var(--pink);outline-offset:3px}
+  .err{color:var(--butter);font-weight:600;font-size:14.5px;margin-top:12px;text-align:center;min-height:20px}
   #done{display:none;text-align:center}
-  #done h2{font-family:Pacifico,cursive;font-weight:400;color:var(--pink);font-size:26px;margin:8px 0}
-  pre{white-space:pre-wrap;text-align:left;background:var(--light);border-radius:12px;padding:14px;font-family:inherit;font-size:13px;max-height:260px;overflow:auto}
-  .foot{text-align:center;color:var(--grey);font-size:12px;margin-top:22px}
-  .float{position:fixed;color:var(--soft);pointer-events:none;animation:up linear infinite;opacity:.7;z-index:0}
-  @keyframes up{from{transform:translateY(0)}to{transform:translateY(-110vh)}}
-  .card{position:relative;z-index:1}
+  #done h2{font-family:var(--display);font-weight:400;color:var(--pink);font-size:28px;margin:8px 0;text-shadow:0 0 20px rgba(255,122,168,.5)}
+  #done p{max-width:42ch;margin:0 auto}
+  .foot{text-align:center;color:var(--muted);font-size:13px;margin-top:24px}
+  .float{position:fixed;pointer-events:none;animation:up linear infinite;z-index:0;opacity:.75}
+  @keyframes up{from{transform:translateY(0) rotate(0)}to{transform:translateY(-120vh) rotate(30deg)}}
+  @media (prefers-reduced-motion:reduce){.big-heart,.float,body:before{animation:none}.float{display:none}}
 </style>
 </head>
 <body>
 <div class="card">
+  <div class="tape">✦ open recruitment ✦</div>
   <form id="form" novalidate>
     <header>
       <div class="big-heart">&#10084;</div>
@@ -156,8 +180,8 @@
     l.append(i, document.createTextNode(q)); qwrap.append(l);
   });
 
-  for (let k = 0; k < 10; k++) {
-    const h = document.createElement("div"); h.className = "float"; h.textContent = "❤";
+  for (let k = 0; k < 16; k++) {
+    const h = document.createElement("div"); h.className = "float"; h.textContent = ["♡","✦","✧","❤","⋆"][k % 5]; h.style.color = ["#FF7AA8","#C7B3FF","#FFE29A","#FF7AA8","#9EEBCF"][k % 5];
     h.style.left = Math.random()*100 + "vw"; h.style.top = (100 + Math.random()*20) + "vh";
     h.style.fontSize = (10 + Math.random()*18) + "px";
     h.style.animationDuration = (12 + Math.random()*14) + "s"; h.style.animationDelay = (-Math.random()*20) + "s";
