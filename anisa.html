@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulir Pendaftaran Calon Pacar Anisa 💖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  :root{--pink:#E8457A;--soft:#F7A8C2;--light:#FFE4EE;--dark:#5A2A3C;--grey:#9A7A86}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Poppins,system-ui,sans-serif;color:var(--dark);
+    background:var(--light) radial-gradient(circle at 10% 10%,#ffd0e0 0,transparent 40%),radial-gradient(circle at 90% 80%,#ffd0e0 0,transparent 40%);
+    min-height:100vh;padding:24px 14px 60px}
+  .card{max-width:640px;margin:0 auto;background:#fff;border-radius:22px;padding:28px 22px;
+    box-shadow:0 10px 40px rgba(232,69,122,.15);border:2px dashed var(--soft)}
+  header{text-align:center}
+  .big-heart{font-size:42px;color:var(--pink);animation:beat 1.2s infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+  h1{font-family:Pacifico,cursive;font-weight:400;color:var(--pink);font-size:30px;margin:6px 0 4px;line-height:1.3}
+  .sub{font-style:italic;font-size:14px;margin:0 0 14px}
+  .note{background:var(--light);border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.5}
+  .sec{margin-top:26px}
+  .sec-title{background:var(--pink);color:#fff;border-radius:10px;padding:8px 14px;font-weight:600;font-size:14px;letter-spacing:.3px}
+  .sec-title small{font-weight:400;opacity:.9}
+  label.f{display:block;margin-top:14px;font-size:14px;font-weight:500}
+  input[type=text],input[type=tel],textarea{width:100%;margin-top:6px;padding:11px 13px;border:1.5px solid var(--soft);
+    border-radius:12px;font:inherit;font-size:15px;color:var(--dark);background:#fffafc;outline:none;transition:.2s}
+  input:focus,textarea:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(232,69,122,.15)}
+  textarea{min-height:80px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+  @media(max-width:480px){.row{grid-template-columns:1fr}}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  @media(max-width:480px){.opts{grid-template-columns:1fr}}
+  .opts.one{grid-template-columns:1fr}
+  .opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1.5px solid var(--light);border-radius:12px;
+    cursor:pointer;font-size:14px;transition:.15s;background:#fff}
+  .opt:hover{border-color:var(--soft)}
+  .opt input{accent-color:var(--pink);width:18px;height:18px;margin:2px 0 0;flex:none}
+  .opt:has(input:checked){border-color:var(--pink);background:#fff3f7}
+  .q{font-weight:600;font-size:14px;margin-top:16px}
+  .btn{display:block;width:100%;margin-top:26px;padding:15px;border:0;border-radius:14px;background:var(--pink);color:#fff;
+    font:inherit;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 6px 18px rgba(232,69,122,.35);transition:.15s;text-align:center;text-decoration:none}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:#fff;color:var(--pink);border:2px solid var(--pink);box-shadow:none;margin-top:12px}
+  .err{color:var(--pink);font-size:13px;margin-top:10px;text-align:center;min-height:18px}
+  .pledge{display:flex;gap:10px;margin-top:14px;font-size:14px;line-height:1.5}
+  .pledge input{accent-color:var(--pink);width:18px;height:18px;flex:none;margin-top:3px}
+  #done{display:none;text-align:center}
+  #done h2{font-family:Pacifico,cursive;font-weight:400;color:var(--pink);font-size:26px;margin:8px 0}
+  pre{white-space:pre-wrap;text-align:left;background:var(--light);border-radius:12px;padding:14px;font-family:inherit;font-size:13px;max-height:260px;overflow:auto}
+  .foot{text-align:center;color:var(--grey);font-size:12px;margin-top:22px}
+  .float{position:fixed;color:var(--soft);pointer-events:none;animation:up linear infinite;opacity:.7;z-index:0}
+  @keyframes up{from{transform:translateY(0)}to{transform:translateY(-110vh)}}
+  .card{position:relative;z-index:1}
+</style>
+</head>
+<body>
+<div class="card">
+  <form id="form" novalidate>
+    <header>
+      <div class="big-heart">&#10084;</div>
+      <h1>Formulir Pendaftaran Calon Pacar Anisa</h1>
+      <p class="sub">Lowongan terbatas! Hanya tersedia 1 (satu) posisi. Khusus pelamar cowok yang serius sama Anisa.</p>
+      <div class="note">Isi dengan jujur dan sepenuh hati. Formulir yang diisi asal-asalan akan langsung masuk folder <b>"cuma teman"</b>. Semua keputusan HRD Hati bersifat mutlak.</div>
+    </header>
+
+    <div class="sec">
+      <div class="sec-title">&#10084; A | Data Diri Pelamar</div>
+      <label class="f">Nama lengkap *<input type="text" name="Nama lengkap" required></label>
+      <label class="f">Email kamu (biar Anisa bisa balas)<input type="text" name="Email pelamar"></label>
+      <label class="f">Nama panggilan (yang boleh aku pakai)<input type="text" name="Nama panggilan"></label>
+      <label class="f">Tempat / tanggal lahir<input type="text" name="Tempat/tgl lahir"></label>
+      <div class="row">
+        <label class="f">Tinggi badan<input type="text" name="Tinggi badan"></label>
+        <label class="f">Zodiak<input type="text" name="Zodiak"></label>
+        <label class="f">No. WhatsApp<input type="tel" name="No. WhatsApp"></label>
+        <label class="f">Instagram<input type="text" name="Instagram"></label>
+      </div>
+      <label class="f">Hobi<input type="text" name="Hobi"></label>
+      <label class="f">Makanan favorit (biar tahu selera kita cocok)<input type="text" name="Makanan favorit"></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">&#10084; B | Status Hati Saat Ini</div>
+      <div class="opts" data-group="Status hati">
+        <label class="opt"><input type="radio" name="status" value="Jomblo sejak lahir (masih segel)">Jomblo sejak lahir (masih segel)</label>
+        <label class="opt"><input type="radio" name="status" value="Jomblo, tapi pengalaman">Jomblo, tapi pengalaman</label>
+        <label class="opt"><input type="radio" name="status" value="Baru putus (sudah move on)">Baru putus (sudah move on, kan?)</label>
+        <label class="opt"><input type="radio" name="status" value="Lagi dekat sama yang lain">Lagi dekat sama yang lain (mohon mundur)</label>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">&#10084; C | Kualifikasi <small>(boleh pilih lebih dari satu)</small></div>
+      <div class="opts" id="quals"></div>
+      <label class="f">Kelebihan lain yang belum disebut<input type="text" name="Kelebihan lain"></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">&#10084; D | Tes Pilihan Ganda</div>
+      <div class="q">1. Aku bilang "terserah" waktu ditanya mau makan apa. Kamu akan...</div>
+      <div class="opts one">
+        <label class="opt"><input type="radio" name="tes1" value="a. Ya udah, terserah juga">a. "Ya udah, terserah juga."</label>
+        <label class="opt"><input type="radio" name="tes1" value="b. Kasih 3 pilihan + beliin dessert">b. Kasih 3 pilihan, terus beliin dessert juga</label>
+        <label class="opt"><input type="radio" name="tes1" value="c. Diam lalu menghilang">c. Diam saja lalu menghilang</label>
+      </div>
+      <div class="q">2. Aku bilang "aku gapapa kok" padahal mukanya cemberut. Kamu akan...</div>
+      <div class="opts one">
+        <label class="opt"><input type="radio" name="tes2" value="a. Oh oke, lanjut main game">a. "Oh oke, syukurlah." (lanjut main game)</label>
+        <label class="opt"><input type="radio" name="tes2" value="b. Peluk, tanya pelan-pelan, dengerin">b. Peluk, tanya pelan-pelan, dan dengerin</label>
+        <label class="opt"><input type="radio" name="tes2" value="c. Ikut cemberut biar kompak">c. Ikut cemberut biar kompak</label>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">&#10084; E | Pertanyaan Esai</div>
+      <label class="f">1. Kenapa kamu yang paling pantas jadi pacarku? (minimal 3 alasan) *<textarea name="Kenapa pantas jadi pacarku" required></textarea></label>
+      <label class="f">2. Sejak kapan kamu mulai memperhatikan aku? Ceritakan!<textarea name="Sejak kapan memperhatikan aku"></textarea></label>
+      <label class="f">3. Rencana kencan pertama impianmu bersamaku<textarea name="Rencana kencan pertama"></textarea></label>
+      <label class="f">4. Satu kalimat gombal terbaikmu (akan dinilai juri)<input type="text" name="Kalimat gombal terbaik"></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">&#10084; F | Surat Pernyataan</div>
+      <label class="pledge"><input type="checkbox" id="pledge">
+        <span>Dengan ini saya menyatakan bahwa seluruh data di atas benar dan dibuat tanpa paksaan, kecuali paksaan dari hati sendiri. Apabila diterima, saya bersedia setia, perhatian, sabar, dan siap menerima segala konsekuensi dari jatuh cinta.</span></label>
+    </div>
+
+    <button class="btn" type="submit">Kirim Lamaran &#10084;</button>
+    <div class="err" id="err"></div>
+  </form>
+
+  <div id="done">
+    <div class="big-heart">&#10084;</div>
+    <h2 id="doneTitle">Mengirim lamaran...</h2>
+    <p style="font-size:14px" id="doneMsg">Tunggu sebentar ya, lagi diantar ke hati Anisa.</p>
+    <button class="btn ghost" id="edit" type="button" style="display:none">Ubah jawaban</button>
+  </div>
+
+  <div class="foot">Batas pendaftaran: secepatnya, sebelum keduluan orang lain.<br>Dokumen ini bersifat rahasia (antara kita berdua saja)</div>
+</div>
+
+<script>
+  // Access key Web3Forms milik Anisa (dikirim ke email Anisa dari web3forms.com).
+  const ACCESS_KEY = "";
+
+  const quals = ["Rela antar-jemput tanpa ngeluh","Balas chat kurang dari 5 menit","Siap nemenin jajan kapan aja",
+    "Bisa diajak deep talk jam 2 pagi","Anti ghosting, anti PHP","Ingat tanggal-tanggal penting",
+    "Jago fotoin dengan angle bagus","Sabar menghadapi kata \"terserah\"","Wangi (minimal pakai parfum)",
+    "Bisa bikin aku ketawa terus","Tidak pelit (traktir sesekali oke)","Mau dikenalin ke teman-temanku"];
+  const qwrap = document.getElementById("quals");
+  quals.forEach(q => {
+    const l = document.createElement("label"); l.className = "opt";
+    const i = document.createElement("input"); i.type = "checkbox"; i.name = "qual"; i.value = q;
+    l.append(i, document.createTextNode(q)); qwrap.append(l);
+  });
+
+  for (let k = 0; k < 10; k++) {
+    const h = document.createElement("div"); h.className = "float"; h.textContent = "❤";
+    h.style.left = Math.random()*100 + "vw"; h.style.top = (100 + Math.random()*20) + "vh";
+    h.style.fontSize = (10 + Math.random()*18) + "px";
+    h.style.animationDuration = (12 + Math.random()*14) + "s"; h.style.animationDelay = (-Math.random()*20) + "s";
+    document.body.append(h);
+  }
+
+  const form = document.getElementById("form"), err = document.getElementById("err");
+  let text = "";
+
+  form.addEventListener("submit", e => {
+    e.preventDefault(); err.textContent = "";
+    const fd = new FormData(form);
+    if (!fd.get("Nama lengkap").trim()) { err.textContent = "Nama lengkap wajib diisi dong, masa anonim?"; return; }
+    if (!fd.get("Kenapa pantas jadi pacarku").trim()) { err.textContent = "Pertanyaan esai nomor 1 wajib dijawab ya!"; return; }
+    if (!document.getElementById("pledge").checked) { err.textContent = "Centang dulu surat pernyataannya, biar sah :)"; return; }
+
+    const lines = ["❤ FORMULIR PENDAFTARAN CALON PACAR ❤", ""];
+    const add = (k, v) => { if (v && String(v).trim()) lines.push("*" + k + ":* " + String(v).trim()); };
+    lines.push("— DATA DIRI —");
+    ["Nama lengkap","Nama panggilan","Tempat/tgl lahir","Tinggi badan","Zodiak","No. WhatsApp","Instagram","Hobi","Makanan favorit"]
+      .forEach(k => add(k, fd.get(k)));
+    lines.push("", "— STATUS HATI —"); add("Status", fd.get("status") || "-");
+    lines.push("", "— KUALIFIKASI —");
+    const qs = fd.getAll("qual"); qs.length ? qs.forEach(q => lines.push("✅ " + q)) : lines.push("(tidak ada yang dicentang 😬)");
+    add("Kelebihan lain", fd.get("Kelebihan lain"));
+    lines.push("", "— TES PILIHAN GANDA —");
+    add("Soal 1 (terserah)", fd.get("tes1") || "-"); add("Soal 2 (aku gapapa)", fd.get("tes2") || "-");
+    lines.push("", "— ESAI —");
+    ["Kenapa pantas jadi pacarku","Sejak kapan memperhatikan aku","Rencana kencan pertama","Kalimat gombal terbaik"]
+      .forEach(k => add(k, fd.get(k)));
+    lines.push("", "☑ Saya siap menerima segala konsekuensi dari jatuh cinta.");
+    text = lines.join("\n");
+
+    form.style.display = "none"; document.getElementById("done").style.display = "block";
+    window.scrollTo(0, 0);
+    const title = document.getElementById("doneTitle"), msg = document.getElementById("doneMsg"), edit = document.getElementById("edit");
+    if (!ACCESS_KEY) {
+      title.textContent = "Formulir belum aktif";
+      msg.textContent = "Lamaranmu belum bisa dikirim karena formulir ini belum disambungkan ke email Anisa. Coba lagi nanti ya!";
+      edit.style.display = "block"; return;
+    }
+    const payload = {
+      access_key: ACCESS_KEY,
+      subject: "💌 Lamaran Calon Pacar dari " + fd.get("Nama lengkap").trim(),
+      from_name: "Formulir Calon Pacar Anisa",
+      message: text
+    };
+    const em = (fd.get("Email pelamar") || "").trim();
+    if (em) payload.replyto = em;
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST", headers: {"Content-Type": "application/json", "Accept": "application/json"},
+      body: JSON.stringify(payload)
+    }).then(r => r.json()).then(j => {
+      if (j.success) {
+        title.textContent = "Lamaran terkirim! 💕";
+        msg.textContent = "Lamaranmu sudah masuk ke HRD Hati Anisa. Hasil seleksi akan diumumkan secara pribadi. Deg-degan ya? 😉";
+      } else { throw new Error(j.message || "gagal"); }
+    }).catch(() => {
+      title.textContent = "Yah, gagal terkirim 😢";
+      msg.textContent = "Sinyal cinta lagi lemah. Cek internet kamu, lalu coba kirim lagi ya.";
+      edit.style.display = "block";
+    });
+  });
+
+  document.getElementById("edit").addEventListener("click", () => {
+    document.getElementById("done").style.display = "none"; form.style.display = "block";
+    document.getElementById("edit").style.display = "none";
+    document.getElementById("doneTitle").textContent = "Mengirim lamaran...";
+    document.getElementById("doneMsg").textContent = "Tunggu sebentar ya, lagi diantar ke hati Anisa.";
+  });
+</script>
+</body>
+</html>
