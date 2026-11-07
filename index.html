@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulir Calon Pacar</title>
+<meta name="description" content="Lowongan terbatas! Hanya tersedia 1 posisi pacar. Isi formulirnya dengan sepenuh hati.">
+<meta property="og:title" content="Formulir Pendaftaran Calon Pacar 💖">
+<meta property="og:description" content="Lowongan terbatas! Hanya tersedia 1 (satu) posisi. Daftar sekarang sebelum keduluan orang lain.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  /* Layout: sticker-style job poster on a pink desk; one column, chunky outlines, offset shadows */
+  :root{
+    --bg:#FFE4EE; --card:#FFFFFF; --field:#FFF7FA; --ink:#5A2A3C; --muted:#9A6A7E;
+    --pink:#E8457A; --soft:#F7A8C2; --butter:#FFE9A8; --mint:#C9F2DF; --lilac:#E6DBFF;
+    --display:"Pacifico",cursive; --body:"Fredoka",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme: dark){:root{
+    --bg:#2A1520; --card:#3A1E2C; --field:#2F1824; --ink:#FFE4EE; --muted:#D9A9BC;
+    --pink:#FF6B98; --soft:#8A3E5C; --butter:#5C4A1E; --mint:#1E4A3A; --lilac:#3A2E5C; color-scheme:dark}}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+    padding:36px max(16px,env(safe-area-inset-right)) 60px max(16px,env(safe-area-inset-left));overflow-x:hidden;min-height:100vh}
+  .wrap{position:relative;z-index:1;max-width:620px;margin:0 auto}
+  .poster{position:relative;background:var(--card);border:3px solid var(--ink);border-radius:28px;
+    padding:34px 24px 28px;box-shadow:8px 8px 0 var(--pink)}
+  @media(max-width:480px){.poster{padding:30px 16px 24px;box-shadow:5px 5px 0 var(--pink)}}
+  .tape{position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--butter);
+    border:2px solid var(--ink);padding:3px 16px;border-radius:6px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  header{text-align:center}
+  .mascot{display:block;margin:4px auto 0;width:80px;animation:beat 1.3s infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.15)}30%{transform:scale(1)}45%{transform:scale(1.1)}}
+  h1{font-family:var(--display);font-weight:400;color:var(--pink);font-size:clamp(28px,7vw,40px);line-height:1.25;margin:8px 0 6px;text-wrap:balance}
+  .sub{margin:0 0 18px;font-weight:500}
+  .sub b{background:var(--mint);padding:0 6px;border-radius:6px}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px}
+  .fact{border:2px dashed var(--soft);border-radius:16px;padding:10px 6px;text-align:center}
+  .fact span{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .fact strong{font-size:15px}
+  .note{background:var(--bg);border-radius:16px;padding:12px 16px;font-size:15px;margin:0;text-align:left}
+
+  /* progress */
+  .progress{position:sticky;top:0;z-index:5;margin:22px -4px 0;padding:10px 4px;background:var(--card)}
+  .bar{height:14px;border:2px solid var(--ink);border-radius:99px;background:var(--field);overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--pink) 0 10px,var(--soft) 10px 20px);transition:width .4s}
+  .bar-label{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:4px}
+
+  .sec{margin-top:28px}
+  .sec-title{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;margin:0 0 4px}
+  .badge{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);
+    background:var(--pink);color:#fff;font-weight:700;transform:rotate(-6deg)}
+  .sec:nth-of-type(even) .badge{background:var(--lilac);color:var(--ink);transform:rotate(5deg)}
+  .hint{font-size:14px;color:var(--muted);margin:0 0 6px 44px}
+  label.f{display:block;margin-top:14px;font-size:15px;font-weight:500}
+  .req{color:var(--pink)}
+  input[type=text],input[type=tel],textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;border:2px solid var(--soft);
+    border-radius:14px;font:inherit;font-size:16px;color:var(--ink);background:var(--field);outline:none;transition:border-color .2s,box-shadow .2s}
+  input:focus,textarea:focus{border-color:var(--pink);box-shadow:0 0 0 4px color-mix(in srgb,var(--pink) 20%,transparent)}
+  textarea{min-height:96px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+  .opts.one{grid-template-columns:1fr}
+  @media(max-width:480px){.row,.opts,.facts{grid-template-columns:1fr}}
+  .opt{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;border:2px solid var(--soft);border-radius:14px;
+    cursor:pointer;font-size:15px;background:var(--card);transition:transform .12s,border-color .12s,background .12s}
+  .opt:hover{transform:translateY(-1px);border-color:var(--pink)}
+  .opt input{accent-color:var(--pink);width:19px;height:19px;margin:2px 0 0;flex:none}
+  .opt:has(input:checked){border-color:var(--ink);background:color-mix(in srgb,var(--pink) 14%,var(--card));box-shadow:3px 3px 0 var(--ink)}
+  .q{font-weight:600;font-size:15px;margin-top:18px}
+  .pledge{display:flex;gap:12px;margin-top:12px;font-size:15px;line-height:1.55;padding:14px;border:2px dashed var(--ink);border-radius:16px;background:var(--butter);cursor:pointer}
+  .pledge input{accent-color:var(--pink);width:20px;height:20px;flex:none;margin-top:3px}
+
+  .btn{display:block;width:100%;margin-top:28px;padding:16px;border:3px solid var(--ink);border-radius:999px;background:var(--pink);color:#fff;
+    font:inherit;font-weight:700;font-size:19px;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s;text-align:center;text-decoration:none}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+  .btn:disabled{opacity:.7;cursor:wait;transform:none}
+  .btn.ghost{background:var(--card);color:var(--pink);margin-top:12px}
+  :focus-visible{outline:3px dashed var(--pink);outline-offset:3px}
+  .err{color:var(--pink);font-weight:600;font-size:15px;margin-top:12px;text-align:center;min-height:22px}
+
+  #done{text-align:center}
+  #done h2{font-family:var(--display);font-weight:400;color:var(--pink);font-size:30px;margin:8px 0}
+  #done p{margin:0 auto 10px;max-width:42ch}
+  .confetti{position:fixed;top:-20px;pointer-events:none;z-index:20;font-size:22px;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+
+  .foot{text-align:center;color:var(--muted);font-size:13px;margin-top:24px}
+  .float{position:fixed;pointer-events:none;color:var(--soft);animation:up linear infinite;z-index:0}
+  @keyframes up{from{transform:translateY(0) rotate(0)}to{transform:translateY(-120vh) rotate(25deg)}}
+  .hp{position:absolute;left:-9999px}
+  [hidden]{display:none!important}
+  @media (prefers-reduced-motion:reduce){.mascot,.float,.confetti{animation:none}.float,.confetti{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<main class="poster">
+  <div class="tape">Lowongan dibuka</div>
+
+  <form id="form" novalidate>
+    <header>
+      <svg class="mascot" viewBox="0 0 100 90" aria-hidden="true">
+        <path d="M50 86 C20 64 4 48 4 28 C4 14 15 4 28 4 C38 4 46 10 50 18 C54 10 62 4 72 4 C85 4 96 14 96 28 C96 48 80 64 50 86Z" fill="var(--pink)" stroke="var(--ink)" stroke-width="5"/>
+        <circle cx="36" cy="38" r="5" fill="var(--ink)"/><circle cx="64" cy="38" r="5" fill="var(--ink)"/>
+        <circle cx="38" cy="36" r="1.6" fill="#fff"/><circle cx="66" cy="36" r="1.6" fill="#fff"/>
+        <path d="M42 52 Q50 60 58 52" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="26" cy="50" r="5" fill="var(--soft)"/><circle cx="74" cy="50" r="5" fill="var(--soft)"/>
+      </svg>
+      <h1>Formulir Pendaftaran Calon Pacar</h1>
+      <p class="sub">Lowongan terbatas! Hanya tersedia <b>1 (satu) posisi</b>. Khusus pelamar cowok.</p>
+      <div class="facts">
+        <div class="fact"><span>Posisi</span><strong>Pacar tetap</strong></div>
+        <div class="fact"><span>Kuota</span><strong>1 orang</strong></div>
+        <div class="fact"><span>Deadline</span><strong>Secepatnya</strong></div>
+      </div>
+      <p class="note">Isi dengan jujur dan sepenuh hati. Formulir yang diisi asal-asalan akan langsung masuk folder <b>"cuma teman"</b>. Semua keputusan HRD Hati bersifat mutlak.</p>
+    </header>
+
+    <div class="progress" aria-hidden="true">
+      <div class="bar"><i id="barfill"></i></div>
+      <div class="bar-label"><span>Level kesungguhan</span><span id="barpct">0%</span></div>
+    </div>
+
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+
+    <section class="sec">
+      <h2 class="sec-title"><span class="badge">A</span>Data Diri Pelamar</h2>
+      <label class="f">Nama lengkap <span class="req">*</span><input type="text" id="nama" name="Nama lengkap" required></label>
+      <label class="f">Nama panggilan (yang boleh aku pakai)<input type="text" id="panggilan" name="Nama panggilan"></label>
+      <label class="f">Tempat / tanggal lahir<input type="text" id="ttl" name="Tempat/tgl lahir"></label>
+      <div class="row">
+        <label class="f">Tinggi badan<input type="text" id="tinggi" name="Tinggi badan" placeholder="cm"></label>
+        <label class="f">Zodiak<input type="text" id="zodiak" name="Zodiak"></label>
+        <label class="f">No. WhatsApp<input type="tel" id="wa" name="No. WhatsApp"></label>
+        <label class="f">Instagram<input type="text" id="ig" name="Instagram" placeholder="@"></label>
+      </div>
+      <label class="f">Hobi<input type="text" id="hobi" name="Hobi"></label>
+      <label class="f">Makanan favorit (biar tahu selera kita cocok)<input type="text" id="makanan" name="Makanan favorit"></label>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title"><span class="badge">B</span>Status Hati Saat Ini</h2>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="Status hati" value="Jomblo sejak lahir (masih segel)">Jomblo sejak lahir (masih segel)</label>
+        <label class="opt"><input type="radio" name="Status hati" value="Jomblo, tapi pengalaman">Jomblo, tapi pengalaman</label>
+        <label class="opt"><input type="radio" name="Status hati" value="Baru putus (sudah move on)">Baru putus (sudah move on, kan?)</label>
+        <label class="opt"><input type="radio" name="Status hati" value="Lagi dekat sama yang lain">Lagi dekat sama yang lain (mohon mundur)</label>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title"><span class="badge">C</span>Kualifikasi</h2>
+      <p class="hint">Boleh pilih lebih dari satu. Makin banyak, makin besar peluangnya.</p>
+      <div class="opts" id="quals"></div>
+      <label class="f">Kelebihan lain yang belum disebut<input type="text" id="kelebihan" name="Kelebihan lain"></label>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title"><span class="badge">D</span>Tes Pilihan Ganda</h2>
+      <div class="q">1. Aku bilang "terserah" waktu ditanya mau makan apa. Kamu akan...</div>
+      <div class="opts one">
+        <label class="opt"><input type="radio" name="Tes 1 (terserah)" value="a. Ya udah, terserah juga">a. "Ya udah, terserah juga."</label>
+        <label class="opt"><input type="radio" name="Tes 1 (terserah)" value="b. Kasih 3 pilihan + beliin dessert">b. Kasih 3 pilihan, terus beliin dessert juga</label>
+        <label class="opt"><input type="radio" name="Tes 1 (terserah)" value="c. Diam lalu menghilang">c. Diam saja lalu menghilang</label>
+      </div>
+      <div class="q">2. Aku bilang "aku gapapa kok" padahal mukanya cemberut. Kamu akan...</div>
+      <div class="opts one">
+        <label class="opt"><input type="radio" name="Tes 2 (aku gapapa)" value="a. Oh oke, lanjut main game">a. "Oh oke, syukurlah." (lanjut main game)</label>
+        <label class="opt"><input type="radio" name="Tes 2 (aku gapapa)" value="b. Peluk, tanya pelan-pelan, dengerin">b. Peluk, tanya pelan-pelan, dan dengerin</label>
+        <label class="opt"><input type="radio" name="Tes 2 (aku gapapa)" value="c. Ikut cemberut biar kompak">c. Ikut cemberut biar kompak</label>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title"><span class="badge">E</span>Pertanyaan Esai</h2>
+      <label class="f">1. Kenapa kamu yang paling pantas jadi pacarku? (minimal 3 alasan) <span class="req">*</span><textarea id="esai1" name="Kenapa pantas jadi pacarku" required></textarea></label>
+      <label class="f">2. Sejak kapan kamu mulai memperhatikan aku? Ceritakan!<textarea id="esai2" name="Sejak kapan memperhatikan aku"></textarea></label>
+      <label class="f">3. Rencana kencan pertama impianmu bersamaku<textarea id="esai3" name="Rencana kencan pertama"></textarea></label>
+      <label class="f">4. Satu kalimat gombal terbaikmu (akan dinilai juri)<input type="text" id="gombal" name="Kalimat gombal terbaik"></label>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title"><span class="badge">F</span>Surat Pernyataan</h2>
+      <label class="pledge"><input type="checkbox" id="pledge">
+        <span>Dengan ini saya menyatakan bahwa seluruh data di atas benar dan dibuat tanpa paksaan, kecuali paksaan dari hati sendiri. Apabila diterima, saya bersedia setia, perhatian, sabar, dan siap menerima segala konsekuensi dari jatuh cinta.</span></label>
+    </section>
+
+    <button class="btn" id="submit" type="submit">Kirim Lamaran 💖</button>
+    <div class="err" id="err" role="alert"></div>
+  </form>
+
+  <div id="done" hidden>
+    <svg class="mascot" viewBox="0 0 100 90" aria-hidden="true">
+      <path d="M50 86 C20 64 4 48 4 28 C4 14 15 4 28 4 C38 4 46 10 50 18 C54 10 62 4 72 4 C85 4 96 14 96 28 C96 48 80 64 50 86Z" fill="var(--pink)" stroke="var(--ink)" stroke-width="5"/>
+      <path d="M30 38 Q36 32 42 38 M58 38 Q64 32 70 38" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M38 50 Q50 64 62 50" fill="var(--ink)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="26" cy="50" r="5" fill="var(--soft)"/><circle cx="74" cy="50" r="5" fill="var(--soft)"/>
+    </svg>
+    <h2>Lamaran terkirim!</h2>
+    <p>Lamaranmu sudah sampai di meja HRD Hati. Hasil seleksi akan diumumkan secara pribadi. Deg-degan ya? 😉</p>
+    <p style="color:var(--muted);font-size:14px">Nomor lamaran: <b id="ticket"></b></p>
+    <button class="btn ghost" id="again" type="button">Kembali ke formulir</button>
+  </div>
+</main>
+<p class="foot">Batas pendaftaran: secepatnya, sebelum keduluan orang lain.<br>Dokumen ini bersifat rahasia (antara kita berdua saja)</p>
+</div>
+
+<script>
+  // Jawaban dikirim ke email ini lewat FormSubmit (formsubmit.co).
+  const EMAIL = "karoameta23@gmail.com";
+
+  const quals = ["Rela antar-jemput tanpa ngeluh","Balas chat kurang dari 5 menit","Siap nemenin jajan kapan aja",
+    "Bisa diajak deep talk jam 2 pagi","Anti ghosting, anti PHP","Ingat tanggal-tanggal penting",
+    "Jago fotoin dengan angle bagus","Sabar menghadapi kata \"terserah\"","Wangi (minimal pakai parfum)",
+    "Bisa bikin aku ketawa terus","Tidak pelit (traktir sesekali oke)","Mau dikenalin ke teman-temanku"];
+  const qwrap = document.getElementById("quals");
+  quals.forEach((q, n) => {
+    const l = document.createElement("label"); l.className = "opt";
+    const i = document.createElement("input"); i.type = "checkbox"; i.name = "qual"; i.value = q; i.id = "q" + n;
+    l.append(i, document.createTextNode(q)); qwrap.append(l);
+  });
+
+  for (let k = 0; k < 12; k++) {
+    const h = document.createElement("div"); h.className = "float"; h.textContent = "♥";
+    h.style.left = Math.random() * 100 + "vw"; h.style.top = (100 + Math.random() * 20) + "vh";
+    h.style.fontSize = (12 + Math.random() * 22) + "px";
+    h.style.animationDuration = (12 + Math.random() * 14) + "s"; h.style.animationDelay = (-Math.random() * 20) + "s";
+    document.body.append(h);
+  }
+
+  const form = document.getElementById("form"), err = document.getElementById("err"), btn = document.getElementById("submit");
+
+  // Progress bar: counts filled text fields + answered groups
+  function progress() {
+    const texts = [...form.querySelectorAll("input[type=text]:not(.hp),input[type=tel],textarea")];
+    const groups = ["Status hati","Tes 1 (terserah)","Tes 2 (aku gapapa)"];
+    let done = texts.filter(t => t.value.trim()).length + groups.filter(g => form.querySelector(`input[name="${g}"]:checked`)).length;
+    if (form.querySelector('input[name=qual]:checked')) done++;
+    if (document.getElementById("pledge").checked) done++;
+    const pct = Math.round(done / (texts.length + groups.length + 2) * 100);
+    document.getElementById("barfill").style.width = pct + "%";
+    document.getElementById("barpct").textContent = pct + "%" + (pct === 100 ? " 💯" : "");
+  }
+  form.addEventListener("input", progress); form.addEventListener("change", progress);
+
+  function confetti() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const bits = ["💖","💕","✨","💗","🌸"];
+    for (let k = 0; k < 40; k++) {
+      const c = document.createElement("div"); c.className = "confetti"; c.textContent = bits[k % bits.length];
+      c.style.left = Math.random() * 100 + "vw"; c.style.animationDuration = (2.5 + Math.random() * 2.5) + "s";
+      c.style.animationDelay = Math.random() * .8 + "s"; document.body.append(c);
+      setTimeout(() => c.remove(), 6000);
+    }
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault(); err.textContent = "";
+    const fd = new FormData(form);
+    if (!fd.get("Nama lengkap").trim()) { err.textContent = "Nama lengkap wajib diisi dong, masa anonim?"; document.getElementById("nama").focus(); return; }
+    if (!fd.get("Kenapa pantas jadi pacarku").trim()) { err.textContent = "Pertanyaan esai nomor 1 wajib dijawab ya!"; document.getElementById("esai1").focus(); return; }
+    if (!document.getElementById("pledge").checked) { err.textContent = "Centang dulu surat pernyataannya, biar sah :)"; return; }
+
+    const payload = {};
+    for (const [k, v] of fd.entries()) { if (k !== "qual" && String(v).trim()) payload[k] = String(v).trim(); }
+    const qs = fd.getAll("qual");
+    payload["Kualifikasi"] = qs.length ? qs.join(" • ") : "(tidak ada yang dicentang 😬)";
+    payload["Surat pernyataan"] = "Setuju ✅";
+    const ticket = "CP-" + Date.now().toString(36).toUpperCase().slice(-6);
+    payload["Nomor lamaran"] = ticket;
+    payload._subject = "💌 Lamaran Calon Pacar dari " + payload["Nama lengkap"];
+    payload._template = "table";
+    payload._captcha = "false";
+
+    btn.disabled = true; btn.textContent = "Mengirim lamaran... 💌";
+    try {
+      const r = await fetch("https://formsubmit.co/ajax/" + EMAIL, {
+        method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || String(j.success) === "false") throw new Error(j.message || r.status);
+      document.getElementById("ticket").textContent = ticket;
+      form.hidden = true; document.getElementById("done").hidden = false;
+      window.scrollTo({ top: 0 }); confetti();
+    } catch (ex) {
+      err.textContent = "Lamaran gagal terkirim. Cek koneksi internetmu lalu coba kirim lagi ya.";
+    } finally {
+      btn.disabled = false; btn.textContent = "Kirim Lamaran 💖";
+    }
+  });
+
+  document.getElementById("again").addEventListener("click", () => {
+    document.getElementById("done").hidden = true; form.hidden = false;
+  });
+</script>
+</body>
+</html>
