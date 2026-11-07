@@ -125,7 +125,7 @@
       <div class="bar-label"><span>Level kesungguhan</span><span id="barpct">0%</span></div>
     </div>
 
-    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
     <section class="sec">
       <h2 class="sec-title"><span class="badge">A</span>Data Diri Pelamar</h2>
@@ -210,8 +210,9 @@
 </div>
 
 <script>
-  // Jawaban dikirim ke email ini lewat FormSubmit (formsubmit.co).
-  const EMAIL = "karoameta23@gmail.com";
+  // Jawaban dikirim ke karoameta23@gmail.com lewat Web3Forms (web3forms.com).
+  // Access key ini hanya bisa dipakai untuk MENGIRIM lamaran ke email itu, aman ditaruh di sini.
+  const ACCESS_KEY = "3238be48-df72-4c90-826c-137874331364";
 
   const quals = ["Rela antar-jemput tanpa ngeluh","Balas chat kurang dari 5 menit","Siap nemenin jajan kapan aja",
     "Bisa diajak deep talk jam 2 pagi","Anti ghosting, anti PHP","Ingat tanggal-tanggal penting",
@@ -272,15 +273,15 @@
     payload["Surat pernyataan"] = "Setuju ✅";
     const ticket = "CP-" + Date.now().toString(36).toUpperCase().slice(-6);
     payload["Nomor lamaran"] = ticket;
-    payload._subject = "💌 Lamaran Calon Pacar dari " + payload["Nama lengkap"];
-    payload._template = "table";
-    payload._captcha = "false";
+    payload.access_key = ACCESS_KEY;
+    payload.subject = "💌 Lamaran Calon Pacar dari " + payload["Nama lengkap"];
+    payload.from_name = "Formulir Calon Pacar";
 
     // Kirim sebagai formulir biasa (bukan fetch) supaya tidak diblokir browser/ad-blocker.
-    // Setelah terkirim, FormSubmit mengarahkan pelamar ke halaman terima-kasih.html.
-    payload._next = new URL("terima-kasih.html?no=" + ticket, location.href).href;
+    // Setelah terkirim, Web3Forms mengarahkan pelamar ke halaman terima-kasih.html.
+    payload.redirect = new URL("terima-kasih.html?no=" + ticket, location.href).href;
     const post = document.createElement("form");
-    post.method = "POST"; post.action = "https://formsubmit.co/" + EMAIL; post.hidden = true;
+    post.method = "POST"; post.action = "https://api.web3forms.com/submit"; post.hidden = true;
     for (const [k, v] of Object.entries(payload)) {
       const i = document.createElement("input"); i.type = "hidden"; i.name = k; i.value = v; post.append(i);
     }
@@ -288,7 +289,7 @@
     btn.disabled = true; btn.textContent = "Mengirim lamaran... 💌";
     post.submit();
   });
-  // Kalau pelamar menekan tombol Back dari halaman FormSubmit, aktifkan lagi tombolnya.
+  // Kalau pelamar menekan tombol Back dari halaman Web3Forms, aktifkan lagi tombolnya.
   window.addEventListener("pageshow", () => { btn.disabled = false; btn.textContent = "Kirim Lamaran 💖"; });
 
   document.getElementById("again").addEventListener("click", () => {
