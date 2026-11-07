@@ -283,12 +283,16 @@
         body: JSON.stringify(payload)
       });
       const j = await r.json().catch(() => ({}));
+      if (/activat/i.test(j.message || "")) {
+        err.textContent = "Formulir ini belum diaktifkan pemiliknya. Pemilik: cek email dari FormSubmit, klik \"Activate Form\", lalu kirim ulang.";
+        return;
+      }
       if (!r.ok || String(j.success) === "false") throw new Error(j.message || r.status);
       document.getElementById("ticket").textContent = ticket;
       form.hidden = true; document.getElementById("done").hidden = false;
       window.scrollTo({ top: 0 }); confetti();
     } catch (ex) {
-      err.textContent = "Lamaran gagal terkirim. Cek koneksi internetmu lalu coba kirim lagi ya.";
+      err.textContent = "Lamaran gagal terkirim (" + ex.message + "). Cek koneksi internetmu lalu coba kirim lagi ya.";
     } finally {
       btn.disabled = false; btn.textContent = "Kirim Lamaran 💖";
     }
